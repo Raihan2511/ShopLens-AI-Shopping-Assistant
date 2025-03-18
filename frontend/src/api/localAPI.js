@@ -1,0 +1,1 @@
+# Placeholder for frontend/src/api/localAPI.js

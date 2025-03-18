@@ -1,0 +1,1 @@
+# Placeholder for frontend/src/screens/ChatScreen.js

@@ -1,0 +1,1 @@
+# Placeholder for backend/models/vision/local/object_detection.py
