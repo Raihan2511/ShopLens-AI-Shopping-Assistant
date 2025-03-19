@@ -1,3 +1,5 @@
 _minted-*
 *.synctex.gz
 dataset
+.venv
+venv
