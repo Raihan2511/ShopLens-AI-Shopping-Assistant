@@ -1,0 +1,64 @@
+\usepackage[top=1in, bottom=1in, left=0.5in, right=0.5in]{geometry}
+\usepackage{amsmath, amsfonts, amssymb, libris, enumerate, fancyhdr, xcolor, lipsum, titling, minted, algorithm, algpseudocode, algorithmicx, float, hyperref, booktabs, graphicx, array}
+\usepackage[utf8]{inputenc}
+
+\usepackage[Glenn]{fncychap}
+\usepackage[skip=20pt, indent=30pt]{parskip}
+\usepackage{setspace}
+\onehalfspacing
+
+\usepackage[some]{background}
+
+\definecolor{titlepagecolor}{cmyk}{.02,.04,0,.90}
+
+\DeclareFixedFont{\bigsf}{T1}{phv}{b}{n}{1.5cm}
+\DeclareFixedFont{\ttb}{T1}{txtt}{bx}{n}{12}
+\DeclareFixedFont{\ttm}{T1}{txtt}{m}{n}{12}
+
+\usepackage{color}
+\definecolor{deepblue}{rgb}{0,0,0.5}
+\definecolor{deepred}{rgb}{0.6,0,0}
+\definecolor{deepgreen}{rgb}{0,0.5,0}
+
+\usepackage{listings}
+
+\newcommand\pythonstyle{\lstset{
+language=Python,
+basicstyle=\ttm,
+morekeywords={self},              % Add keywords here
+keywordstyle=\ttb\color{deepblue},
+emph={MyClass,__init__},          % Custom highlighting
+emphstyle=\ttb\color{deepred},    % Custom highlighting style
+stringstyle=\color{deepgreen},
+frame=tb,                         % Any extra options here
+showstringspaces=false,
+tabsize=2,
+}}
+
+
+% Python environment
+\lstnewenvironment{python}[1][]
+{
+\pythonstyle
+\lstset{#1}
+}
+{}
+
+% Python for external files
+\newcommand\pythonexternal[2][]{{
+\pythonstyle
+\lstinputlisting[#1]{#2}}}
+
+\newcommand\pythoninline[1]{{\pythonstyle\lstinline!#1!}}
+
+
+\makeatletter
+\renewcommand{\@chapapp}{Section}
+\makeatother
+\renewcommand{\thechapter}{\Roman{chapter}}
+
+\pagestyle{fancy}
+\fancyhead[l]{ }
+\fancyfoot[c]{\thepage}
+\renewcommand{\headrulewidth}{0.2pt}
+\setlength{\headheight}{28pt}

@@ -1,0 +1,109 @@
+\chapter{Introduction}
+ShopLens is an innovative mobile application that leverages computer vision, augmented reality (AR), and retrieval-augmented generation (RAG) powered by large language models (LLMs) to transform both the seller and buyer experiences in online retail. The app automatically recognizes clothing items, overlays virtual garments, and provides personalized product recommendations by processing real-time data.
+
+\section{Motivation}
+In today’s fast-paced e-commerce landscape, customers demand accurate product information and personalized recommendations. Inaccurate sizing and poor fit are among the top reasons for high return rates. ShopLens addresses these issues by:
+\begin{itemize}
+    \item Automating product recognition to speed up cataloging for sellers.
+    \item Using AR to provide precise body measurements and virtual try-ons.
+    \item Employing RAG to ensure that chatbot recommendations are up-to-date and context-aware.
+\end{itemize}
+This project not only improves customer satisfaction and reduces returns but also enhances seller efficiency by minimizing manual data entry and product misclassification.
+
+\subsection{Workflow}
+
+\subsubsection{Seller Perspective}
+\begin{enumerate}
+    \item \textbf{Product Image Upload:} The seller uploads product images to the platform.
+    \item \textbf{Automated Attribute Extraction:} The computer vision module automatically extracts key attributes (e.g., garment type, color, fabric, pattern).
+    \item \textbf{Verification and Correction:} The seller reviews and corrects any misidentified details.
+    \item \textbf{Data Integration:} The verified product data is indexed and stored, contributing to model improvements for future recognition.
+\end{enumerate}
+
+\subsubsection{Buyer Perspective}
+\begin{enumerate}
+    \item \textbf{Product Discovery:} The buyer uploads a reference image or browses the catalog.
+    \item \textbf{Similarity Retrieval:} The system uses the CV module and vector search to retrieve similar products.
+    \item \textbf{AR-based Virtual Try-On:} The AR module overlays virtual garments for an interactive try-on experience.
+    \item \textbf{Chatbot Assistance:} A RAG-powered chatbot offers personalized recommendations and responds to queries (e.g., suggesting alternative products based on price or style).
+    \item \textbf{Purchase Decision:} The buyer evaluates the personalized suggestions and proceeds with the purchase.
+\end{enumerate}
+
+\chapter{Tools and Libraries}
+\begin{itemize}
+    \item \textbf{Computer Vision:} OpenCV, TensorFlow/PyTorch.
+    \item \textbf{Augmented Reality:} ARCore (Android).
+    \item \textbf{LLM and RAG:} Hugging Face Transformers, LLMs (OpenAI, Gemini, Deepseek), LangChain, vector database.
+    \item \textbf{Development Environment:} Git.
+\end{itemize}
+
+\chapter{Methodology}
+The ShopLens system is designed as a modular architecture where each component performs a distinct role while seamlessly integrating with the others. The internal workflow is structured to ensure scalability, accuracy, and real-time responsiveness.
+
+\section{System Architecture}
+Our system comprises four main modules:
+\begin{itemize}
+    \item \textbf{Computer Vision Module:} Automates product recognition and attribute extraction.
+    \item \textbf{Augmented Reality Module:} Handles real-time body measurements and virtual try-on experiences.
+    \item \textbf{LLM/RAG Module:} Powers a dynamic chatbot to provide personalized recommendations using retrieval-augmented generation.
+\end{itemize}
+
+\section{Internal Workflow}
+\subsubsection{Computer Vision Module}
+\begin{itemize}
+    \item \textbf{Image Preprocessing:} Uploaded product images are normalized, resized, and augmented to ensure consistency.
+    \item \textbf{Feature Extraction:} Deep neural networks (e.g., ResNet or Vision Transformers) extract visual features and generate embeddings.
+    \item \textbf{Attribute Classification:} Specialized classifiers analyze the embeddings to identify product type, color, fabric, pattern, and other design elements.
+    \item \textbf{Feedback Integration:} Sellers verify and correct attributes, and the corrections are used to periodically retrain and improve the model.
+\end{itemize}
+
+\subsubsection{Augmented Reality Module}
+\begin{itemize}
+    \item \textbf{Virtual Try-On:} The module overlays optimized 3D garment models onto the user’s live image stream, aligning them with real-time body tracking data.
+    \item \textbf{User Calibration:} On-screen guides help users position themselves correctly, and feedback is used to refine the measurement algorithms.
+\end{itemize}
+
+\subsubsection{LLM and Retrieval-Augmented Generation (RAG) Module}
+\begin{itemize}
+    \item \textbf{Query Processing:} User queries and product metadata are encoded into vector representations using advanced embedding models.
+    \item \textbf{Semantic Retrieval:} A vector database (e.g., Pinecone) is queried to retrieve the most relevant product data based on semantic similarity.
+    \item \textbf{Chatbot Interaction:} The retrieved context is combined with the original query and fed to a large language model (via platforms such as Hugging Face or OpenAI API) to generate personalized and context-aware responses.
+    \item \textbf{Continuous Improvement:} Interaction logs and user feedback are utilized to fine-tune both the retrieval process and the LLM prompts.
+\end{itemize}
+
+
+\chapter{Work Plan}
+
+\section{Timeline (4 Weeks)}
+\begin{itemize}
+    \item \textbf{Week 1:} Requirements analysis, system design, and setting up the development environment.
+    \item \textbf{Week 2:} Develop and test the computer vision and AR modules.
+    \item \textbf{Week 3:} Develop the LLM/RAG-based chatbot and integrate with the product database.
+    \item \textbf{Week 4:} Developing application front-end, integration testing, and final deployment.
+\end{itemize}
+
+\section{Work Distribution}
+\begin{itemize}
+    \item \textbf{Sayan Das:} Lead on computer vision and AR integration. Responsible for application front-end and deployment.
+    \item \textbf{Raihan Uddin:} Responsible for the development of the product detection system and AR virtual try-on. Lead on LLM/RAG chatbot integration.
+\end{itemize}
+
+\chapter{Future Work}
+Beyond the initial 4-week period, the following features could be added:
+\begin{itemize}
+    \item \textbf{Enhanced Feedback Loop:} Improve model accuracy through continuous seller and user feedback integration.
+    \item \textbf{Advanced AR Features:} Implement more sophisticated virtual try-on effects and precise body measurement algorithms.
+    \item \textbf{Expanded Product Categories:} Support additional clothing types and accessories.
+    \item \textbf{Personalization Enhancements:} Incorporate user data analytics for tailored marketing and product recommendations.
+    \item \textbf{Cross-Platform Integration:} Extend support to multiple platforms (iOS, Android, and web).
+\end{itemize}
+
+\begin{thebibliography}{9}
+    \bibitem{opencv} OpenCV: Open Source Computer Vision Library. \url{https://opencv.org/}
+    \bibitem{tensorflow} TensorFlow: An end-to-end open-source platform for machine learning. \url{https://www.tensorflow.org/}
+    \bibitem{huggingface} Hugging Face: Transformers for Natural Language Processing. \url{https://huggingface.co/}
+    \bibitem{arcore} ARCore: Augmented Reality SDK by Google. \url{https://developers.google.com/ar}
+    \bibitem{isa} Lai, Y., et al. ISA: An Intelligent Shopping Assistant. AACL 2020.
+\end{thebibliography}
+
+
