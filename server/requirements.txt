@@ -1,0 +1,20 @@
+Flask
+Flask-SQLAlchemy      # If using SQLAlchemy for database
+Flask-Migrate         # For handling database migrations
+Flask-WTF             # For handling forms
+Flask-Login           # For user authentication
+Flask-Cors            # If you need CORS support
+Flask-RESTful         # If building a REST API
+gunicorn              # If deploying with Gunicorn (for production servers)
+python-dotenv         # If using environment variables
+flask_jwt_extended
+
+google-generativeai
+ollama
+langchain_chroma
+langchain
+
+torch
+numpy
+opencv-python
+opencv-python-headless

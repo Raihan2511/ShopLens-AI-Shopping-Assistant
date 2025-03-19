@@ -1,1 +1,0 @@
-# Placeholder for tests/frontend/test_ui.js

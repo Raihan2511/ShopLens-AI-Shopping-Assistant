@@ -1,1 +1,0 @@
-# Placeholder for backend/api/product_recognition.py

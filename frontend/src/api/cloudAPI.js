@@ -1,1 +1,0 @@
-# Placeholder for frontend/src/api/cloudAPI.js

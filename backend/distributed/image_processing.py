@@ -1,1 +1,0 @@
-# Placeholder for backend/distributed/image_processing.py

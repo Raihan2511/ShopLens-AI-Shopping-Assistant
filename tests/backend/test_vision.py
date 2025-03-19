@@ -1,1 +1,0 @@
-# Placeholder for tests/backend/test_vision.py

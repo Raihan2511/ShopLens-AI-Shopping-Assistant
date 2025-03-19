@@ -1,1 +1,1 @@
-# Placeholder for README.md
+# ShopLens: An AR Visual Shopping Assistant
