@@ -1,5 +1,9 @@
 _minted-*
 *.synctex.gz
 dataset
+.ipynb_checkpoints
+
+Images_features.pkl
+filenames.pkl
 .venv
 venv
