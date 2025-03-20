@@ -7,3 +7,4 @@ Images_features.pkl
 filenames.pkl
 .venv
 venv
+.env

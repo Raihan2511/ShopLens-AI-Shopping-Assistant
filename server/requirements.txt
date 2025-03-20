@@ -15,14 +15,16 @@ langchain_chroma
 langchain
 faiss-cpu
 Pillow
+pycocotools
+roboflow
 
 ipykernel
 
-torch==2.2.1
-torchvision==0.17.1
-tensorflow>=2.16.0
-torchaudio==2.6.0
-detectron2
+torch
+torchvision
+tensorflow
+torchaudio
+# detectron2
 transformers
 
 numpy
