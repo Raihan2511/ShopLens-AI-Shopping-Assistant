@@ -18,9 +18,9 @@ Pillow
 
 ipykernel
 
-torch==2.2.1
-torchvision==0.17.1
-tensorflow>=2.16.0
+torch
+torchvision
+tensorflow
 
 numpy
 pandas
@@ -30,7 +30,6 @@ tqdm
 requests
 
 opencv-python
-opencv-python-headless==4.9.0.80
+opencv-python-headless
 
-
-
+WooCommerce
