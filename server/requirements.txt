@@ -20,21 +20,21 @@ Pillow==10.0.0
 pycocotools==2.0.7
 roboflow==1.1.17
 
-# Jupyter Notebook Support
-ipykernel==6.25.2
+Jupyter Notebook Support
+# ipykernel==6.25.2
 
 # PyTorch with CUDA Support (ensure CUDA 11.8 is installed!)
 # torch==2.2.0+cu118     # CUDA-specific version
 # torchvision==0.16.0+cu118  # CUDA-specific version
-# torchaudio==2.1.0+cu118    # CUDA-specific version
+# torchaudio==2.1.0+cu118    # CUDA-specific versi/on
 
 
 
-# TensorFlow Object Detection API (Optional alternative)
-# tensorflow==2.16.1
-# tensorflow_hub==0.15.0
+TensorFlow Object Detection API (Optional alternative)
+tensorflow==2.16.1
+tensorflow_hub==0.15.0
 
-# Mediapipe (Optional for pose estimation)
+Mediapipe (Optional for pose estimation)
 mediapipe==0.10.13
 
 # OpenCV for visualization
@@ -49,4 +49,5 @@ scikit-learn
 tqdm
 requests
 
+ultralytics
 
