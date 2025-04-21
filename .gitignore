@@ -7,3 +7,6 @@ Images_features.pkl
 filenames.
 
 backend
+
+model
+yolo_small
