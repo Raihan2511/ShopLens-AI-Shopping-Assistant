@@ -25,7 +25,7 @@ This project proposes a solution that combines object detection and visual simil
 Two distinct datasets were used in the development of this system, each serving a different purpose in the workflow:
 
 \begin{itemize}
-    \item \textbf{Fashionpedia Dataset}: This dataset, available on Hugging Face at \url{https://huggingface.co/datasets/detection-datasets/fashionpedia}, was used to fine-tune the YOLOS object detection model. Fashionpedia contains richly annotated fashion images with 46 clothing and accessory categories and pixel-level segmentation, making it ideal for training object detectors in the fashion domain.
+    \item \textbf{Fashionpedia Dataset}:     This dataset, available on Hugging Face at \url{https://huggingface.co/datasets/detection-datasets/fashionpedia}, was used to fine-tune the YOLOS object detection model. Fashionpedia contains richly annotated fashion images with 46 clothing and accessory categories and pixel-level segmentation, making it ideal for training object detectors in the fashion domain. It contains 46,781 images and 342,182 bounding boxes.
 
     \item \textbf{Fashion Product Images Dataset}: Sourced from Kaggle at \url{https://www.kaggle.com/datasets/paramaggarwal/fashion-product-images-dataset}, this dataset serves as a simulated store catalog. It contains a large number of product images that are used for feature extraction and similarity search. Although the dataset lacks fine-grained textual labels (e.g., "red t-shirt", "striped jeans"), it is sufficient for the visual matching task required in this application, where the images themselves act as dummy inventory items in the store.
 \end{itemize}
@@ -34,8 +34,14 @@ Two distinct datasets were used in the development of this system, each serving 
 
 \section*{Model Architecture}
 
-\subsection*{YOLOS for Object Detection}
-YOLOS (You Only Look at One Sequence) is a transformer-based model adapted for object detection tasks. Fine-tuning YOLOS on fashion datasets allows for precise detection of various clothing items. The model processes images to predict bounding boxes and class probabilities for detected objects.
+\subsection*{YOLOS finetuned for Object Detection}
+YOLOS (You Only Look at One Sequence) is a transformer-based model adapted for object detection tasks. Fine-tuning YOLOS on fashion datasets allows for precise detection of various clothing items. The model processes images to predict bounding boxes and class probabilities for detected objects. Our model supports the following 46 classes:
+% \vspace{-1em}
+\begin{center}
+\begin{minipage}{0.6\textwidth}
+    \textit{shirt, blouse}, \textit{top, t-shirt, sweatshirt}, \textit{sweater}, \textit{cardigan}, \textit{jacket}, \textit{vest}, \textit{pants}, \textit{shorts}, \textit{skirt}, \textit{coat}, \textit{dress}, \textit{jumpsuit}, \textit{cape}, \textit{glasses}, \textit{hat}, \textit{headband, head covering, hair accessory}, \textit{tie}, \textit{glove}, \textit{watch}, \textit{belt}, \textit{leg warmer}, \textit{tights, stockings}, \textit{sock}, \textit{shoe}, \textit{bag, wallet}, \textit{scarf}, \textit{umbrella}, \textit{hood}, \textit{collar}, \textit{lapel}, \textit{epaulette}, \textit{sleeve}, \textit{pocket}, \textit{neckline}, \textit{buckle}, \textit{zipper}, \textit{applique}, \textit{bead}, \textit{bow}, \textit{flower}, \textit{fringe}, \textit{ribbon}, \textit{rivet}, \textit{ruffle}, \textit{sequin}, \textit{tassel}.
+\end{minipage}
+\end{center}
 
 \subsection*{ResNet50 for Feature Extraction}
 ResNet50, a deep convolutional neural network, is employed to extract features from cropped images of detected fashion items. By removing the top classification layer and adding a Global Max Pooling layer, the model outputs feature vectors representing the visual characteristics of each item.
@@ -60,7 +66,7 @@ The following outlines the workflow of the system that enables users to find sim
     \item \textbf{Result Display:} The top visually similar clothing items are displayed to the user, enabling quick browsing and purchase options for similar fashion items.
 \end{enumerate}
 
-It can be summarized in teh following diagram:
+It can be summarized in the following diagram:
 
 \begin{figure}[H]
   \centering
@@ -141,6 +147,7 @@ While the current system lays the foundation for a powerful visual product recom
     \item \textbf{Faster Search Backend:} Replace brute-force nearest neighbors with FAISS indexing for faster and scalable similarity search.
     \item \textbf{Inventory Sync:} Automatically sync with store inventories to only recommend available products in real-time.
     \item \textbf{Social Sharing:} Allow users to share their finds with friends on social platforms for feedback and engagement.
+    \item \textbf{Virtual Try-On:} Explore augmented reality features to allow users to virtually try on clothing items before purchasing.
 \end{itemize}
 
 
@@ -151,4 +158,8 @@ The integration of YOLOS for object detection and ResNet50 for feature extractio
 \begin{enumerate}
   \item You Only Look at One Sequence: Rethinking Transformer in Vision through Object Detection
   : \url{https://arxiv.org/abs/2106.00666}
+  \item Revisiting a kNN-based Image Classification System with High-capacity Storage
+  : \url{https://arxiv.org/abs/2204.01186}
+  \item Image Segmentation Using Deep Learning: A Survey
+  : \url{https://arxiv.org/abs/2001.05566}
 \end{enumerate}
