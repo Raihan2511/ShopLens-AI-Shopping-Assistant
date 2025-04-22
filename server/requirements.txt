@@ -50,4 +50,7 @@ tqdm
 requests
 
 ultralytics
-
+datasets 
+transformers 
+torchvision 
+pytorch-lightning
