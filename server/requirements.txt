@@ -1,35 +1,13 @@
-Flask
-Flask-SQLAlchemy
-Flask-Migrate
-Flask-WTF
-Flask-Login
-Flask-Cors
-Flask-RESTful
-gunicorn
-python-dotenv
-flask_jwt_extended
-
-google-generativeai
-ollama
-langchain_chroma
-langchain
-faiss-cpu
-Pillow
-
-ipykernel
-
+fastapi
+uvicorn
+pillow
+transformers
 torch
-torchvision
-tensorflow
-
-numpy
-pandas
 matplotlib
+torchvision
 scikit-learn
-tqdm
-requests
-
-opencv-python
-opencv-python-headless
-
-WooCommerce
+numpy
+tensorflow
+ipykernel  # if you're still using Jupyter locally
+python-multipart  # for uploading images/files via FastAPI
+scalar-fastapi  # optional: for pretty API docs
