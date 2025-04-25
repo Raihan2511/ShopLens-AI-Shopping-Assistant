@@ -1,0 +1,1 @@
+from .render_product_card import render_product_card
