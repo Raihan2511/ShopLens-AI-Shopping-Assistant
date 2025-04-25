@@ -3,3 +3,6 @@ __pycache__
 .env
 uploads
 chroma_db
+
+faiss_image.index
+faiss_text.index
