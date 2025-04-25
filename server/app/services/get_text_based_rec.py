@@ -23,3 +23,14 @@ def get_text_based_rec(query, k=6):
     product_ids = [map_idx_id(idx) for idx in top_k_indices]
 
     return product_ids
+
+def get_image_based_rec(query, k=6):
+    text_embedding = fclip.encode_text([query], 32)[0]
+
+    similarities = text_embedding.dot(image_embeddings.T)
+
+    top_k_indices = np.argsort(similarities)[-k:][::-1]
+
+    product_ids = [map_idx_id(idx) for idx in top_k_indices]
+
+    return product_ids

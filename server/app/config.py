@@ -11,7 +11,7 @@ load_dotenv(dotenv_path=env_path)
 class Settings:
     PROJECT_NAME: str = "ShopLens"
     DB_URL: str = os.getenv("DATABASE_URL", "postgresql://user:password@localhost/shoplens_db")
-    SECRET_KEY: str = os.getenv("SECRET_KEY", "supersecretkey")
+    GEMINI_API_KEY: str = os.getenv("GEMINI_API_KEY", "supersecretkey")
     DEBUG: bool = os.getenv("DEBUG", "True").lower() == "true"
 
 settings = Settings()
