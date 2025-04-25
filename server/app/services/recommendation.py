@@ -2,6 +2,8 @@ import faiss
 from fashion_clip.fashion_clip import FashionCLIP
 from app.utils import map_idx_id
 import numpy as np
+from PIL import Image
+
 
 fclip = FashionCLIP('fashion-clip')
 
@@ -24,13 +26,13 @@ def get_text_based_rec(query, k=6):
 
     return product_ids
 
-def get_image_based_rec(query, k=6):
-    text_embedding = fclip.encode_text([query], 32)[0]
+def get_image_based_rec(image: Image.Image, k=6):
+    query_embedding = fclip.encode_images([image], batch_size=1)[0]
+    query_embedding = query_embedding / np.linalg.norm(query_embedding)
+    query_embedding = np.expand_dims(query_embedding, axis=0).astype(np.float32)
 
-    similarities = text_embedding.dot(image_embeddings.T)
+    D, I = image_index.search(query_embedding, k=k)
 
-    top_k_indices = np.argsort(similarities)[-k:][::-1]
-
-    product_ids = [map_idx_id(idx) for idx in top_k_indices]
+    product_ids = [map_idx_id(idx) for idx in I[0]]
 
     return product_ids
