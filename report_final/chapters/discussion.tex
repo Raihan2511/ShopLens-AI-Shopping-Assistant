@@ -1,6 +1,35 @@
 \chapter{Discussion}
 \label{chap:discussion}
 
+\section{Analysis of Results}
+
+
+As discussed in the methodology, we used fashion-clip for text and image based retrieval. For our text based retrieval, we used Recall@K matric to evaluate the performance of our model. \textbf{Recall@K} is a metric that measures the proportion of relevant items that are retrieved in the top K results. It is defined as:
+
+Let \( T = \{ t_1, t_2, \ldots, t_n \} \) be the set of text embeddings, and \( I = \{ i_1, i_2, \ldots, i_n \} \) be the set of image embeddings.
+
+Define the similarity between a text embedding and an image embedding as:
+\[
+s(t_k, i_j) = t_k^\top i_j
+\]
+where \( \top \) denotes the transpose (dot product).
+
+For each \( k \in \{1, 2, \ldots, n\} \), let \( \text{Top}_5(t_k) \) denote the set of indices corresponding to the top 5 highest values of \( s(t_k, i_j) \) over all \( j \).
+
+Define the number of correct predictions as:
+\[
+\text{correct} = \sum_{k=1}^{n} \mathbf{1}\{k \in \text{Top}_5(t_k)\}
+\]
+where \( \mathbf{1}\{ \cdot \} \) is the indicator function, equal to 1 if the condition is true, and 0 otherwise.
+
+Then, the final recall is given by:
+\[
+\text{Recall} = \frac{\text{correct}}{n}
+\]
+
+Here, we use Recall@6 to evaluate the performance of our model and it turned out to be \textbf{0.68}. This means that more than half (68\%) of the times, the relevant item is found in the top 5 results returned by the model.
+
+
 \section{Anomalies and Unexpected Findings}
 
 During the course of our project, we encountered several anomalies and unexpected behaviors that offered important insights:
