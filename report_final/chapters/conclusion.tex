@@ -1,0 +1,48 @@
+\chapter{Conclusion}
+\label{chap:conclusion}
+
+\section{Key Takeaways}
+
+Through the development of \textbf{ShopLens}, we demonstrated the potential of combining object detection and multimodal retrieval systems to bridge the gap between fashion inspiration and product discovery. By fine-tuning YOLOS for precise garment detection and leveraging FashionCLIP for robust text and image-based retrieval, we successfully built an AI Shopping Assistant tailored for the fashion domain.
+
+We placed significant emphasis on dataset curation and preprocessing, applying techniques such as invalid bounding box removal, data augmentation, and feature extraction to ensure high-quality model training. This careful preparation was crucial in enhancing the stability and performance of our models.
+
+Our evaluation using Recall@5 yielded a score of 0.68, showing that the system could retrieve relevant products within the top five results with high consistency. This metric validated the effectiveness of our architecture and approach for real-world applications.
+
+Furthermore, we developed a functional Streamlit-based application, integrating both image and text search capabilities. This practical deployment highlights the viability of real-time AI-driven product recommendation systems in enhancing user experiences in e-commerce.
+
+Overall, we found that domain-specific fine-tuning, rigorous data engineering, and multimodal learning are key pillars for building robust, scalable AI systems in specialized industries like fashion.
+
+\section{Reflection on Objectives}
+
+We initially set out with four primary objectives, each aiming to enhance the online fashion shopping experience through AI. Upon completion of the project, we are pleased to reflect on the extent to which these goals were achieved:
+
+\begin{itemize}
+    \item \textbf{Development of the Application:} We successfully developed \textbf{ShopLens}, an AI-powered shopping assistant that enables users to search for fashion items through both images and text queries. The application was deployed via Streamlit, providing a functional and interactive user interface.
+
+    \item \textbf{Text-Based Product Search:} We effectively implemented a text-based search system utilizing \textbf{FashionCLIP}. Users can input natural language queries, such as "show me some black and green running shoes," and receive highly relevant product recommendations, thereby achieving this objective comprehensively.
+
+    \item \textbf{Image-Based Product Search:} We integrated an image-based search functionality by fine-tuning \textbf{YOLOS} for clothing detection and employing \textbf{FashionCLIP} embeddings for retrieval. Users can upload an image, and the system detects garments and retrieves visually similar products with promising accuracy.
+
+    \item \textbf{Leveraging Object Detection and Visual Similarity:} We successfully leveraged state-of-the-art models for object detection and multimodal similarity search, specifically tailored to the fashion domain. Our combination of YOLOS and FashionCLIP proved to be highly effective, as reflected in the system’s performance with a Recall@5 of 0.68.
+\end{itemize}
+
+Overall, we met our core objectives and laid a strong foundation for future enhancements, which are listed below.
+
+
+\section{Future Work}
+
+While the current system lays the foundation for a powerful visual product recommendation engine, there are several avenues for improvement and extension:
+
+\vspace{-0.45em}
+\begin{itemize}
+    \setlength\itemsep{-1.05em}
+    \item \textbf{Web Integration:} Upgrade the streamlit app into a user-friendly web interface where users can upload images and receive fashion recommendations instantly.
+    \item \textbf{Mobile Application:} Create a mobile app for easy and on-the-go usage, leveraging device cameras and local caching.
+    \item \textbf{Personalized Recommendations:} Incorporate user preferences, browsing history, and past purchases to refine suggestions.
+    \item \textbf{Multi-clothing Detection:} Extend the pipeline to handle multiple clothing items simultaneously and generate multiple sets of suggestions.
+    \item \textbf{Multimodal Search:} Combine visual search with textual filters like price, size, color, or material.
+    \item \textbf{Inventory Sync:} Automatically sync with store inventories to only recommend available products in real-time.
+    \item \textbf{Social Sharing:} Allow users to share their finds with friends on social platforms for feedback and engagement.
+    \item \textbf{Virtual Try-On:} Explore augmented reality features to allow users to virtually try on clothing items before purchasing.
+\end{itemize}

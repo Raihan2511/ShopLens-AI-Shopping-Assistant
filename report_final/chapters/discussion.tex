@@ -1,0 +1,34 @@
+\chapter{Discussion}
+\label{chap:discussion}
+
+\section{Anomalies and Unexpected Findings}
+
+During the course of our project, we encountered several anomalies and unexpected behaviors that offered important insights:
+
+\begin{itemize}
+    \item \textbf{Overrepresentation of Certain Classes:} One noticeable anomaly was that categories such as \textit{"shoe"} and \textit{"sleeve"} were significantly overrepresented in the Fashionpedia dataset. Upon analysis, we realized this is expected, as full-body images typically contain two shoes and two sleeves, resulting in higher bounding box counts for these classes.
+
+    \item \textbf{Bounding Box Quality Issues:} Initially, the Fashionpedia dataset contained a non-negligible number of invalid bounding boxes (zero area). Although this was addressed during preprocessing, it highlighted the importance of careful dataset curation when fine-tuning detection models.
+
+    \item \textbf{Metadata Inconsistencies:} In the Fashion Product Images dataset, several entries were found to have missing or inconsistent metadata (such as "Unknown" categories or overly long descriptions), requiring substantial cleaning efforts before the data could be effectively used.
+\end{itemize}
+
+These anomalies emphasized the importance of rigorous preprocessing and data inspection when working with large-scale real-world datasets.
+
+\section{Limitations}
+
+While our project achieved its core objectives, there are notable limitations that constrain its full potential:
+
+\begin{itemize}
+    \item \textbf{Small Object Retrieval Challenges:} In celebrity or real-world images, accessories like watches, sunglasses, or jewelry are often present alongside major garments. Due to their small size, these objects are difficult to detect and retrieve accurately. We believe the primary reason is that small objects occupy fewer pixels, leading to lower resolution feature representations and consequently poorer embedding quality.
+
+    \item \textbf{Lack of Multimodal Editing Capabilities:} Our system currently supports independent image-based and text-based retrieval. However, it cannot perform multimodal queries that combine both inputs, such as "Find a red-colored version of this uploaded suit." Enabling this would require more sophisticated joint embedding manipulation or generative modeling.
+
+    \item \textbf{Fixed Inventory Limitation:} Our current inventory is static and does not dynamically update with real-time availability of products. Therefore, some recommended items may not reflect actual stock conditions in a live e-commerce environment.
+
+    \item \textbf{Limited Personalization:} While retrieval is based on image or text similarity, our system does not yet incorporate user-specific preferences, browsing history, or style profiles, which could enhance recommendation relevance.
+
+    \item \textbf{Streamlit Deployment Constraints:} The current Streamlit-based prototype, while functional, may not scale optimally for very large product inventories or concurrent user loads without transitioning to a more robust backend infrastructure.
+\end{itemize}
+
+Addressing these limitations in future iterations would make the system more powerful, user-friendly, and commercially viable.

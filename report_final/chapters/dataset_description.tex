@@ -1,0 +1,134 @@
+\chapter{Dataset Description}
+\label{chap:dataset_description}
+
+
+In this project, we utilized two primary datasets to power different components of our AI Shopping Assistant system: the Fashionpedia dataset and the Fashion Product Images dataset. Each dataset was selected based on its specific suitability to address the different needs of object detection model training and inventory database creation.
+
+\section{Fashionpedia Dataset}
+
+The Fashionpedia dataset was primarily used for fine-tuning the YOLOS model for object detection tasks within the fashion domain.
+
+\subsection{Dataset Overview}
+
+Fashionpedia is a comprehensive dataset mapping out the visual aspects of the fashion world. It consists of two parts:
+
+\vspace{-1.25em}
+\begin{itemize}
+    \setlength\itemsep{-1.5em}
+    \item An ontology constructed by fashion experts, containing 27 main apparel categories, 19 apparel parts, 294 fine-grained attributes, and their relationships.
+    \item A dataset comprising everyday and celebrity event fashion images annotated with segmentation masks and associated fine-grained attributes.
+\end{itemize}
+
+The dataset statistics are as follows:
+
+\vspace{-1.25em}
+\begin{itemize}
+    \setlength\itemsep{-1.5em}
+    \item Total images: 46,781
+    \item Total bounding boxes: 342,182
+\end{itemize}
+
+\subsection{Supported Tasks}
+
+Fashionpedia supports multiple computer vision tasks relevant to fashion analysis:
+
+\vspace{-1.25em}
+\begin{itemize}
+    \setlength\itemsep{-1.5em}
+    \item Object detection
+    \item Image classification
+\end{itemize}
+
+All annotations are provided in English.
+
+\subsection{Dataset Structure}
+
+The dataset is divided into training and validation sets as shown below:
+
+\vspace{-1.25em}
+\begin{itemize}
+    \setlength\itemsep{-1.5em}
+    \item Training set: 45,623 images
+    \item Validation set: 1,158 images
+\end{itemize}
+
+Each sample contains the following fields:
+
+\vspace{-1.25em}
+\begin{itemize}
+    \setlength\itemsep{-1.5em}
+    \item \textbf{image\_id}: Unique numeric identifier for the image.
+    \item \textbf{image}: The image itself in RGB format.
+    \item \textbf{width}: Width of the image.
+    \item \textbf{height}: Height of the image.
+    \item \textbf{objects}: Metadata related to objects detected in the image, including:
+          \vspace{-1.25em}
+          \begin{itemize}
+              \setlength\itemsep{-1.5em}
+              \item \textbf{bbox\_id}: Unique ID for each bounding box annotation.
+              \item \textbf{category}: Class label representing the fashion category.
+              \item \textbf{bbox}: Coordinates of the bounding box in Pascal VOC format.
+              \item \textbf{area}: Area of the bounding box.
+          \end{itemize}
+\end{itemize}
+
+An example data instance:
+
+\vspace{-1.25em}
+\begin{itemize}
+    \setlength\itemsep{-1.5em}
+    \item \textbf{image\_id}: 23
+    \item \textbf{width}: 682
+    \item \textbf{height}: 1024
+    \item \textbf{objects}: Four bounding boxes with categories such as shoes, dress, and accessories.
+\end{itemize}
+
+\subsection{Application in Project}
+
+The Fashionpedia dataset was used for fine-tuning the YOLOS object detection model. The rich annotations across a variety of fashion items made it an ideal choice for training our system to accurately detect different clothing pieces in uploaded images.
+
+\section{Fashion Product Images Dataset}
+
+The Fashion Product Images Dataset was utilized to seed the application database, essentially serving as the inventory of fashion products available for matching and recommendation.
+
+\subsection{Dataset Overview}
+
+This dataset comprises product images paired with detailed metadata. Each product is uniquely identified by an \texttt{article\_id}, and corresponding images are stored in a structured folder system. Metadata about each product is provided in a separate CSV file named \texttt{styles.csv}.
+
+The metadata includes attributes such as:
+
+\vspace{-1.25em}
+\begin{itemize}
+    \setlength\itemsep{-1.5em}
+    \item \textbf{article\_id}: Unique product identifier.
+    \item \textbf{prod\_name}: Product name.
+    \item \textbf{product\_type\_name}: Broad category of the product.
+    \item \textbf{colour\_group\_name}: Primary color grouping.
+    \item \textbf{department\_name}: Department such as Menswear, Ladieswear, etc.
+    \item \textbf{section\_name}: Further refined section within the department.
+    \item \textbf{garment\_group\_name}: Specific garment group classification.
+    \item \textbf{detail\_desc}: Detailed product description.
+\end{itemize}
+
+\subsection{Dataset Structure}
+
+Each product has a corresponding image file named as \texttt{<article\_id>.jpg}. For example, the product with ID 42431 is stored as \texttt{images/42431.jpg}.
+
+An example metadata entry:
+
+\vspace{-1.25em}
+\begin{itemize}
+    \setlength\itemsep{-1.5em}
+    \item \textbf{article\_id}: 108775015
+    \item \textbf{prod\_name}: Strap top
+    \item \textbf{product\_type\_name}: Vest top
+    \item \textbf{colour\_group\_name}: Black
+    \item \textbf{department\_name}: Jersey Basic
+    \item \textbf{section\_name}: Womens Everyday Basics
+    \item \textbf{garment\_group\_name}: Jersey Basic
+    \item \textbf{detail\_desc}: Jersey top with narrow shoulder straps
+\end{itemize}
+
+\subsection{Application in Project}
+
+This dataset was used to populate the product inventory for the AI Shopping Assistant. During the image-based or text-based search, the application retrieves matching products from this database to suggest to users, making it a critical backbone for the recommendation system.
