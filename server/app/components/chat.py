@@ -7,6 +7,8 @@ def render_chat_bubble(msg):
         st.markdown(msg["content"])
         if msg["role"] == "user" and "image" in msg:
             st.image(msg["image"], width=150)
+        if msg["role"] == "assistant" and "image" in msg:
+            st.image(msg["image"], width=150)
         if msg["role"] == "assistant" and "product_ids" in msg:
             render_product_grid(msg["product_ids"])
 

@@ -5,6 +5,8 @@ from app.services.chat import load_chat_history, save_chat_message
 from app.components.chat import render_chat_bubble
 from app.services.ai import infer_query
 from PIL import Image
+import requests
+from io import BytesIO
 
 # Set up page
 st.set_page_config(page_title="ShopLens", layout="wide")
@@ -62,6 +64,26 @@ if inferred_query:
             st.session_state.image_query = prompt
             if not st.session_state.uploader_visible:
                 show_upload(True)
+        else:
+            st.session_state.image_query = prompt
+            url = inferred_query["image_url"]  # example: "https://example.com/image.jpg"
+            response = requests.get(url)
+            img = Image.open(BytesIO(response.content))
+            product_ids = get_image_based_rec(img)
+
+            save_chat_message(prompt, product_ids)
+
+            st.session_state.chat.append({
+            "role": "user",
+            "content": f"",
+            "image": img,
+        })
+
+            st.session_state.chat.append({
+                "role": "assistant",
+                "content": f"Here's my recommendations:",
+                "product_ids": product_ids
+            })
 
 # Render chat
 for msg in st.session_state.chat:
