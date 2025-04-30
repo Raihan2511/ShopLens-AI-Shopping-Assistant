@@ -6,10 +6,20 @@ from app.components.chat import render_chat_bubble
 from app.services.ai import infer_query
 from PIL import Image
 
-
 # Set up page
 st.set_page_config(page_title="ShopLens", layout="wide")
 st.title("💬 ShopLens AI Stylist")
+
+# Spacer to push the button to bottom
+sidebar_space = st.sidebar.container()
+for _ in range(300):  # Fills space dynamically; tweak if needed
+    sidebar_space.empty()
+
+# Button fixed at bottom
+with st.sidebar:
+    if st.button("📤 Upload Image"):
+        st.session_state.uploader_visible = True
+
 
 # Load chat from session or DB
 if "chat" not in st.session_state:
@@ -27,8 +37,8 @@ if "image_query" not in st.session_state:
 def show_upload(state:bool):
     st.session_state.uploader_visible = state
 
-# Main chat area
 prompt = st.chat_input("What outfit are you looking for?")
+
 
 inferred_query = infer_query(prompt) if prompt else None
 print(type(inferred_query))
@@ -64,7 +74,13 @@ if st.session_state.uploader_visible:
         image = Image.open(st.session_state.image)
         product_ids = get_image_based_rec(image)
 
-        save_chat_message(st.session_state.image_query, product_ids)
+        # save_chat_message(st.session_state.image_query, product_ids)
+
+        st.session_state.chat.append({
+            "role": "user",
+            "content": f"Showing products similar to this image:",
+            "image": st.session_state.image,
+        })
 
         st.session_state.chat.append({
             "role": "assistant",
