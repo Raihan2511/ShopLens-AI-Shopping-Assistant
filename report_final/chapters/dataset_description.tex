@@ -8,6 +8,10 @@ In this project, we utilized two primary datasets to power different components 
 
 The Fashionpedia dataset was primarily used for fine-tuning the YOLOS model for object detection tasks within the fashion domain.
 
+\subsection{Dataset Source}
+
+The Fashionpedia dataset is publicly available in huggingface and can be accessed through the following link: \href{https://huggingface.co/datasets/detection-datasets/fashionpedia}{https://huggingface.co/datasets/detection-datasets/fashionpedia}
+
 \subsection{Dataset Overview}
 
 Fashionpedia is a comprehensive dataset mapping out the visual aspects of the fashion world. It consists of two parts:
@@ -72,6 +76,13 @@ Each sample contains the following fields:
           \end{itemize}
 \end{itemize}
 
+The categories are as follows:
+\begin{center}
+\begin{minipage}{0.6\textwidth}
+    \textit{shirt, blouse}, \textit{top, t-shirt, sweatshirt}, \textit{sweater}, \textit{cardigan}, \textit{jacket}, \textit{vest}, \textit{pants}, \textit{shorts}, \textit{skirt}, \textit{coat}, \textit{dress}, \textit{jumpsuit}, \textit{cape}, \textit{glasses}, \textit{hat}, \textit{headband, head covering, hair accessory}, \textit{tie}, \textit{glove}, \textit{watch}, \textit{belt}, \textit{leg warmer}, \textit{tights, stockings}, \textit{sock}, \textit{shoe}, \textit{bag, wallet}, \textit{scarf}, \textit{umbrella}, \textit{hood}, \textit{collar}, \textit{lapel}, \textit{epaulette}, \textit{sleeve}, \textit{pocket}, \textit{neckline}, \textit{buckle}, \textit{zipper}, \textit{applique}, \textit{bead}, \textit{bow}, \textit{flower}, \textit{fringe}, \textit{ribbon}, \textit{rivet}, \textit{ruffle}, \textit{sequin}, \textit{tassel}.
+\end{minipage}
+\end{center}
+
 An example data instance:
 
 \vspace{-1.25em}
@@ -91,9 +102,12 @@ The Fashionpedia dataset was used for fine-tuning the YOLOS object detection mod
 
 The Fashion Product Images Dataset was utilized to seed the application database, essentially serving as the inventory of fashion products available for matching and recommendation.
 
+\subsection{Dataset Source}
+This dataset is sourced from kaggle. It is publicly available and can be accessed through this link: \href{https://www.kaggle.com/datasets/paramaggarwal/fashion-product-images-dataset}{https://www.kaggle.com/datasets/paramaggarwal/fashion-product-images-dataset}
+
 \subsection{Dataset Overview}
 
-This dataset comprises product images paired with detailed metadata. Each product is uniquely identified by an \texttt{article\_id}, and corresponding images are stored in a structured folder system. Metadata about each product is provided in a separate CSV file named \texttt{styles.csv}.
+This dataset comprises product images paired with detailed metadata. Each product is uniquely identified by an \texttt{article\_id}, and corresponding images are stored in a structured folder system. It contains a total of 1,05,542 products, each with a unique identifier and associated metadata.
 
 The metadata includes attributes such as:
 

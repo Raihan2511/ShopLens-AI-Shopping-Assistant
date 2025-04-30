@@ -75,6 +75,8 @@ The second dataset initially contained significant redundancies and irrelevant e
     \item \textbf{Rare Product Types Removal:} Product types with very few samples (less than 10 occurrences) were eliminated to prevent skewed learning.
 \end{enumerate}
 
+After these steps, the original dataset of 1,05,542 products was reduced to 37,704 products. The remaining entries were then re-indexed to ensure a clean and continuous dataset.
+
 Additionally, a random price was assigned to each item for downstream tasks, and the corresponding local image paths were constructed based on their article IDs.
 
 \textbf{Significance:} These steps ensure that the final dataset is clean, consistent, and better suited for training vision-language models. Removing duplicates and rare categories avoids overfitting to irrelevant patterns, while maintaining concise descriptions ensures compatibility with the model's token limits.

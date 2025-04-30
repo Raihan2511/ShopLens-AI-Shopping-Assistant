@@ -1,0 +1,173 @@
+\section{Dataset Description}
+\begin{frame}{}
+  \Huge
+  \centering
+  \textbf{Dataset Description}
+  \normalsize
+\end{frame}
+
+\begin{frame}{Source - Fashionpedia Dataset}
+
+  \begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{images/hugging-face.png}
+  \end{figure}
+  Link - \footnotesize \href{https://huggingface.co/datasets/detection-datasets/fashionpedia}{https://huggingface.co/datasets/detection-datasets/fashionpedia}\\
+  \normalsize
+
+  This dataset was constructed by fashion experts, containing \textbf{46,781 images} with \textbf{342,182 bounding boxes}. It is used for fine-tuning the YOLOS model for object detection tasks within the fashion domain.
+
+\end{frame}
+
+\begin{frame}{Dataset Statistics}
+
+\begin{columns}[c] % 'c' for vertical centering
+    \column{0.4\textwidth}
+    \centering
+    \textbf{General Information}
+
+    \vspace{0.3em}
+    \begin{tabular}{|l|r|}
+    \hline
+    \textbf{Total Images} & 46,781 \\
+    \hline
+    \textbf{Total BBoxes} & 342,182 \\
+    \hline
+    \end{tabular}
+
+    \column{0.5\textwidth}
+    \centering
+    \textbf{Data Split}
+
+    \vspace{0.3em}
+    \begin{tabular}{|l|r|}
+    \hline
+    \textbf{Training Set} & 45,623 images \\
+    \hline
+    \textbf{Validation Set} & 1,158 images \\
+    \hline
+    \end{tabular}
+\end{columns}
+
+
+\begin{table}[h!]
+  \centering
+  \textbf{Each sample contains:}
+\begin{tabular}{|l|l|}
+\hline
+\textbf{Field} & \textbf{Description} \\
+\hline
+\textbf{image\_id} & Unique image identifier \\
+\hline
+\textbf{image} & RGB image \\
+\hline
+\textbf{width, height} & Image dimensions \\
+\hline
+\textbf{objects} & Detected objects metadata \\
+\hline
+\end{tabular}
+\end{table}
+
+\textbf{Object Metadata:}
+\begin{itemize}
+    \item \textbf{bbox\_id}, \textbf{category}, \textbf{bbox} (Pascal VOC format), \textbf{area}
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Dataset Statistics}
+  \textbf{46 Fashion Categories}
+
+  \scriptsize
+  \begin{multicols}{4}
+  \begin{itemize}
+      \item shirt, blouse
+      \item top, t-shirt, sweatshirt
+      \item sweater
+      \item cardigan
+      \item jacket
+      \item vest
+      \item pants
+      \item shorts
+      \item skirt
+      \item coat
+      \item dress
+      \item jumpsuit
+      \item cape
+      \item glasses
+      \item hat
+      \item headband, hair accessory
+      \item tie
+      \item glove
+      \item watch
+      \item belt
+      \item leg warmer
+      \item tights, stockings
+      \item sock
+      \item shoe
+      \item bag, wallet
+      \item scarf
+      \item umbrella
+      \item hood
+      \item collar
+      \item lapel
+      \item epaulette
+      \item sleeve
+      \item pocket
+      \item neckline
+      \item buckle
+      \item zipper
+      \item applique
+      \item bead
+      \item bow
+      \item flower
+      \item fringe
+      \item ribbon
+      \item rivet
+      \item ruffle
+      \item sequin
+      \item tassel
+  \end{itemize}
+  \end{multicols}
+\end{frame}
+
+
+\begin{frame}{Source - Fashion Product Images Dataset}
+  \begin{figure}[H]
+    \centering
+    \includegraphics[width=0.3\textwidth]{images/kaggle.png}
+  \end{figure}
+  Link - \footnotesize \href{https://www.kaggle.com/datasets/paramaggarwal/fashion-product-images-dataset}{https://www.kaggle.com/datasets/paramaggarwal/fashion-product-images-dataset}\\
+  \normalsize
+
+  It contains a total of \textbf{1,05,542 fashion products}, almost each with a image and associated metadata.
+\end{frame}
+
+\begin{frame}{Dataset Statistics}
+  \small
+
+    \centering
+    \renewcommand{\arraystretch}{1.2}
+    \begin{tabular}{|p{0.4\textwidth}|p{0.5\textwidth}|}
+    \hline
+    \textbf{Field Name} & \textbf{Description} \\
+    \hline
+    \textbf{article\_id} & Unique product identifier \\
+    \hline
+    \textbf{prod\_name} & Product name \\
+    \hline
+    \textbf{product\_type\_name} & Broad category of the product \\
+    \hline
+    \textbf{colour\_group\_name} & Primary color grouping \\
+    \hline
+    \textbf{department\_name} & Department like Menswear, Ladieswear \\
+    \hline
+    \textbf{section\_name} & Section within department \\
+    \hline
+    \textbf{garment\_group\_name} & Garment group classification \\
+    \hline
+    \textbf{detail\_desc} & Detailed product description \\
+    \hline
+    \end{tabular}
+
+\end{frame}

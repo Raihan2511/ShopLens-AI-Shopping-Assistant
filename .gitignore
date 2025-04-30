@@ -12,3 +12,5 @@ model
 yolo_small
 fashion-clip-model
 
+*.nav
+*.snm

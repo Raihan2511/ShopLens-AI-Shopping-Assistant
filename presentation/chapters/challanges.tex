@@ -1,0 +1,29 @@
+\section{Challenges and Limitations}
+\begin{frame}{}
+  \Huge
+  \centering
+  \textbf{Challenges and Limitations}
+  \normalsize
+\end{frame}
+
+\begin{frame}{Challenges}
+  \begin{itemize}
+      \item Finding a good dataset that includes both images and meaningful textual descriptions was a major challenge.
+      \item Initially, we used the \textbf{Amazon UK Products Dataset 2023 (2.2M products)} to seed our inventory.
+      \item However, the fashion product descriptions in this dataset were often not meaningful.
+      \item We then attempted to scrape Amazon data manually, but scraping was very slow and triggered repeated Cloudflare human checks (likely due to not using a proxy).
+      \item Finally, we settled on the dataset mentioned earlier that offered high-quality image-text pairs.
+  \end{itemize}
+  \end{frame}
+
+  \begin{frame}{Limitations}
+  While our project achieved its core objectives, some limitations remain:
+
+  \begin{itemize}
+      \item \textbf{Small Object Retrieval Challenges}
+      \item \textbf{Lack of Multimodal Retrieval}
+      \item \textbf{Fixed Inventory Limitation}
+      \item \textbf{Limited Personalization}
+      \item \textbf{Streamlit Deployment Constraints}
+  \end{itemize}
+  \end{frame}
