@@ -1,3 +1,10 @@
 {
   "notebook.output.scrolling": true,
+  "cSpell.words": [
+    "bboxes",
+    "cxcywh",
+    "probas",
+    "xyxy",
+    "Yolos"
+  ],
 }

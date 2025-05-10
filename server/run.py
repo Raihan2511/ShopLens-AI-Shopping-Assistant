@@ -2,11 +2,12 @@ import streamlit as st
 from app.config import settings
 from app.services import get_text_based_rec, get_image_based_rec
 from app.services.chat import load_chat_history, save_chat_message
-from app.components.chat import render_chat_bubble
+from app.components.chat import render_chat_bubble, render_category_selection
 from app.services.ai import infer_query
 from PIL import Image
 import requests
 from io import BytesIO
+from app.services.image_processing import get_detections
 
 # Set up page
 st.set_page_config(page_title="ShopLens", layout="wide")
@@ -22,6 +23,7 @@ with st.sidebar:
     if st.button("📤 Upload Image"):
         st.session_state.uploader_visible = True
 
+cats = ['shirt, blouse', 'top, t-shirt, sweatshirt', 'sweater', 'cardigan', 'jacket', 'vest', 'pants', 'shorts', 'skirt', 'coat', 'dress', 'jumpsuit', 'cape', 'glasses', 'hat', 'headband, head covering, hair accessory', 'tie', 'glove', 'watch', 'belt', 'leg warmer', 'tights, stockings', 'sock', 'shoe', 'bag, wallet', 'scarf', 'umbrella', 'hood', 'collar', 'lapel', 'epaulette', 'sleeve', 'pocket', 'neckline', 'buckle', 'zipper', 'applique', 'bead', 'bow', 'flower', 'fringe', 'ribbon', 'rivet', 'ruffle', 'sequin', 'tassel']
 
 # Load chat from session or DB
 if "chat" not in st.session_state:
@@ -36,6 +38,9 @@ if "image" not in st.session_state:
 if "image_query" not in st.session_state:
     st.session_state.image_query = None
 
+if "clicked_cat" not in st.session_state:
+    st.session_state.clicked_cat = None
+
 def show_upload(state:bool):
     st.session_state.uploader_visible = state
 
@@ -43,8 +48,6 @@ prompt = st.chat_input("What outfit are you looking for?")
 
 
 inferred_query = infer_query(prompt) if prompt else None
-print(type(inferred_query))
-print(inferred_query)
 
 if inferred_query:
     st.session_state.chat.append({"role": "user", "content": prompt})
@@ -90,13 +93,10 @@ for msg in st.session_state.chat:
     render_chat_bubble(msg)
 
 if st.session_state.uploader_visible:
-    st.session_state.image = st.file_uploader("")
+    st.session_state.image = st.file_uploader("", type=["png", "jpg", "jpeg"])
     if st.session_state.image:
         show_upload(False)
         image = Image.open(st.session_state.image)
-        product_ids = get_image_based_rec(image)
-
-        # save_chat_message(st.session_state.image_query, product_ids)
 
         st.session_state.chat.append({
             "role": "user",
@@ -104,13 +104,31 @@ if st.session_state.uploader_visible:
             "image": st.session_state.image,
         })
 
-        st.session_state.chat.append({
-            "role": "assistant",
-            "content": f"Here's my recommendations:",
-            "product_ids": product_ids
-        })
-        st.rerun()
+        image, boxes, labels = get_detections(image)
 
+        render_category_selection(image, boxes, labels)
+
+
+if st.session_state.clicked_cat:
+    product_ids = get_image_based_rec(st.session_state.clicked_cat["image"])
+
+    # save_chat_message(st.session_state.image_query, product_ids)
+
+    st.session_state.chat.append({
+        "role": "assistant",
+        "content": f"Showing cropped image:",
+        "image": st.session_state.clicked_cat["image"],
+    })
+
+    st.session_state.chat.append({
+        "role": "assistant",
+        "content": f"Here's my recommendations:",
+        "product_ids": product_ids
+    })
+
+    st.session_state.clicked_cat = None
+    # Reset the clicked category to None to avoid re-rendering
+    st.rerun()
 
 
 # Debug info
