@@ -1,10 +1,22 @@
-# ShopLens – AI Shopping Assistant 🛍️🤖
+# ShopLens – AI Shopping Assistant 
 
 ShopLens is an AI-powered augmented reality shopping assistant that combines object detection, image-based search, and conversational recommendations to enhance the retail experience. It allows users to get detailed information about products by simply pointing their phone camera and interacting through an intelligent chatbot.
 
 ---
+## System Architecture
 
-## 🧠 Methodology
+```mermaid
+graph TD
+    A[User Image] --> B[Object Detection Model]
+    B --> C[User Selects the Category of Clothes]
+    C --> D[That Part of Image is Cropped]
+    D --> E[Feature Extraction Model]
+    E --> F[Store Catalog]
+    F --> G[Find Similar Clothes]
+    G --> H[Display x No of Similar Clothes from the Store]
+```
+---
+## Methodology
 
 ShopLens consists of three core modules that work together seamlessly:
 
@@ -29,7 +41,41 @@ ShopLens consists of three core modules that work together seamlessly:
 
 ---
 
-## 🌟 Features
+## 📐 Results & Evaluation
+
+To evaluate our retrieval system, we used the **Recall@K** metric, specifically **Recall@6**.
+
+### 📊 What is Recall@K?
+
+**Recall@K** measures how often the correct image is found in the top K retrieved results for a given text query.
+
+### 🧮 Evaluation Details
+
+Let `T = {t₁, t₂, ..., tₙ}` be the set of text embeddings, and `I = {i₁, i₂, ..., iₙ}` the set of image embeddings.  
+The similarity between `tₖ` and `iⱼ` is computed as the dot product:
+
+```
+score(tₖ, iⱼ) = tₖᵀ · iⱼ
+```
+
+Let **Top6(tₖ)** be the indices of top 6 images sorted by similarity score with `tₖ`.  
+Then the number of correct predictions is:
+
+```
+correct = Σ 1{k ∈ Top6(tₖ)}
+```
+
+Final Recall is:
+
+```
+Recall = correct / n = 0.68
+```
+
+📈 This means that in **68% of the cases**, the correct item was retrieved in the top 6 results.
+
+---
+
+## Features
 
 * Real-time object detection from camera
 * Visual similarity-based fashion search
@@ -38,21 +84,21 @@ ShopLens consists of three core modules that work together seamlessly:
 
 ---
 
-## 🛠️ Tech Stack
+##  Tech Stack
 
 * Python
 * Streamlit (for UI)
 * PyTorch (YOLOS, FashionCLIP)
 * Hugging Face Transformers
 * FAISS (for similarity search)
-* OpenAI / LLMs (for chatbot)
+* Gemini / LLMs (for chatbot)
 
 ---
 
-## 📦 Installation
+## Installation
 
 ```bash
-git clone https://github.com/yourusername/shoplens.git
+git clone https://github.com/Raihan2511/ShopLens-AI-Shopping-Assistant.git
 cd shoplens
 pip install -r requirements.txt
 streamlit run app.py
@@ -60,7 +106,7 @@ streamlit run app.py
 
 ---
 
-## 📊 Dataset
+## Dataset
 
 * Custom-scraped dataset of fashion products from sites like Amazon, Myntra, and Flipkart.
 * Each item includes image, title, description, and price.
@@ -68,7 +114,7 @@ streamlit run app.py
 
 ---
 
-## 🚀 How It Works
+##  How It Works
 
 1. User opens the app and scans a fashion item.
 2. YOLOS detects the main product (e.g., "blue sneakers").
@@ -78,7 +124,7 @@ streamlit run app.py
 
 ---
 
-## 📊 Results
+## Results
 
 * YOLOS enables fast and accurate detection on fashion items.
 * FashionCLIP returns semantically relevant visual matches.
@@ -86,7 +132,7 @@ streamlit run app.py
 
 ---
 
-## 🧪 Future Work
+##  Future Work
 
 * Integrate real-time pricing from e-commerce APIs
 * Extend support to multi-object and multi-category detection
@@ -102,10 +148,6 @@ This project is licensed under the MIT License. See `LICENSE` for details.
 
 ## 🙋‍♂️ Authors
 
+* Sayan Das
 * Raihan Uddin
 
----
-
-## 📬 Contact
-
-For any queries, contact: **[raihan.yourmail@example.com](mailto:raihan.yourmail@example.com)**
