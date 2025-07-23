@@ -4,13 +4,4 @@ dataset
 .ipynb_checkpoints
 
 Images_features.pkl
-filenames.
-
-backend
-
-model
-yolo_small
-fashion-clip-model
-
-*.nav
-*.snm
+filenames.pkl
