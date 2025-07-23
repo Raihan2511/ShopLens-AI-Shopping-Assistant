@@ -1,36 +1,57 @@
-Flask
-Flask-SQLAlchemy
-Flask-Migrate
-Flask-WTF
-Flask-Login
-Flask-Cors
-Flask-RESTful
-gunicorn
-python-dotenv
-flask_jwt_extended
+# # # Backend Essentials
+# Flask==2.3.2
+# Flask-SQLAlchemy==3.1.1
+# Flask-Migrate==4.0.4
+# Flask-WTF==1.1.1
+# Flask-Login==0.6.2
+# Flask-Cors==4.0.0
+# Flask-RESTful==0.3.9
+# gunicorn==21.2.0
+# python-dotenv==1.0.0
+# flask_jwt_extended==4.5.3
 
-google-generativeai
-ollama
-langchain_chroma
-langchain
-faiss-cpu
-Pillow
+# # AI/ML Libraries
+# google-generativeai==0.2.0
+# ollama==0.1.0
+# langchain_chroma==0.1.0
+# langchain==0.1.10
+# faiss-cpu==1.7.4
+# Pillow==10.0.0
+# pycocotools==2.0.7
+# roboflow==1.1.17
 
-ipykernel
+# Jupyter Notebook Support
+# # ipykernel==6.25.2
 
-torch==2.2.1
-torchvision==0.17.1
-tensorflow>=2.16.0
-
-numpy
-pandas
-matplotlib
-scikit-learn
-tqdm
-requests
-
-opencv-python
-opencv-python-headless==4.9.0.80
+# # PyTorch with CUDA Support (ensure CUDA 11.8 is installed!)
+# # torch==2.2.0+cu118     # CUDA-specific version
+# # torchvision==0.16.0+cu118  # CUDA-specific version
+# # torchaudio==2.1.0+cu118    # CUDA-specific versi/on
 
 
 
+# TensorFlow Object Detection API (Optional alternative)
+# tensorflow==2.16.1
+# tensorflow_hub==0.15.0
+
+# Mediapipe (Optional for pose estimation)
+# mediapipe==0.10.13
+
+# # OpenCV for visualization
+# opencv-python==4.8.1.78
+# opencv-python-headless==4.9.0.80
+# matplotlib==3.8.0
+
+# # Data Science/ML Utils
+# numpy
+# pandas
+# scikit-learn
+# tqdm
+# requests
+
+# ultralytics
+# datasets 
+# transformers 
+# torchvision 
+# pytorch-lightning
+lightning
